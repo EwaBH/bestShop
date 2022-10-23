@@ -1,6 +1,7 @@
 .container {
   margin: 0 auto;
   width: 1352px;
+  box-sizing: border-box;
 }
 /*font-family: 'Open Sans', sans-serif;*/
 body {
@@ -14,7 +15,7 @@ body {
 .header {
   height: 70px;
   width: 100%;
-  box-shadow:0px 3px 6px #00000029 ;
+  box-shadow: 0px 3px 6px #00000029;
   margin-bottom: 130px;
 }
 .logo {
@@ -47,13 +48,14 @@ body {
 }
 .section-main .container {
   background-image: url("../assets/Background.png");
+  background-size: contain;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 712px;
+
+  height: 594px;
   background-repeat: no-repeat;
   background-position: bottom;
-  
 }
 
 .heading {
@@ -62,25 +64,207 @@ body {
   width: 226px;
   height: 57px;
   margin-bottom: 20px;
-  
 }
 .section-main-text {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
 .section-main-button {
-    width: 440px;
-    height: 67px;
-    background-color:#08A6E4 ;
-    color: #fff;
-    font-family: 'Open Sans', sans-serif;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 38px;
-    margin-bottom: -10px;
+  width: 440px;
+  height: 67px;
+  background-color: #08a6e4;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 38px;
+  margin-bottom: -10px;
+}
 
+.statistics .container,
+.benefits .container,
+.pricing .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statistics {
+  display: flex;
+  align-items: center;
+  height: 531px;
+  justify-content: center;
+}
+.statistics-heading {
+  display: flex;
+  font-size: 36px;
+  font-weight: 400;
+  margin-top: 100px;
+  width: 716px; /*zrobiona zmiania bo nie dziala*/
+  height: 42px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  box-sizing: content-box; /*dlaczego się nie zmniejsza*/
+  text-align: center;
+}
+.statistics-boxes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  width: 1620px;
+  box-sizing: border-box;
+}
+.statistics__img {
+  position: absolute;
+  margin-left: 28px;
+}
+.counter2 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.img2 {
+  margin-top: 10px;
+}
+.icon {
+  position: relative;
+  justify-content: center;
+  width: 63px;
+  height: 63px;
+  display: block;
+  position: relative;
+  border-radius: 50%;
+  bottom: 20px;
+}
+
+/* czy przy before i after można dać nth of child, of type
+czy można to zrobić before*/
+.icon1 {
+  background: #fb3b64;
+  margin-right: -10px;
+}
+.icon2 {
+  background: #08a6e4;
+}
+.icon3 {
+  background: #55dfb4;
+}
+
+.statistics-boxes {
+  padding-left: 200px;
+  padding-right: 150px;
+}
+.statistics-boxes-text {
+  align-items: flex-start;
+  padding: 0 15px;
+}
+
+.statistics-boxes-counter {
+  font-weight: 800;
+  font-size: 20px;
+  margin-top: 13px;
+}
+.statistics-boxes-text {
+  color: #a5a5a5;
+  font-size: 16px;
+  margin-top: 19px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.benefits-photo1 {
+  height: 219px;
+}
+.benefits-photo2 {
+  height: 328px;
+}
+.benefits-photo3 {
+  height: 208px;
+}
+
+.article {
+  display: flex;
+  width: 1124px;
+  height: 370px;
+  justify-content: center;
+
+  box-sizing: border-box;
+}
+.article:nth-of-type(2) {
+  flex-direction: row-reverse;
+}
+.benefits-boxes {
+  flex-direction: column;
+  flex-shrink: 4;
+}
+.benefits-heading {
+  font-size: 36px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+.benefits-paragraf {
+  font-size: 16px;
+  width: 416px;
+}
+.benefits-photo3 {
+  background-color: #55dfb4;
+  width: 295px;
+}
+.benefits-paragraf1::after {
+  display: flex;
+  flex-direction: column;
+  content: "";
+  width: 328px;
+  border: solid #fb3b64;
+  margin-top: 50px;
+}
+.benefits-paragraf2::after {
+  display: flex;
+  flex-direction: column;
+  content: "";
+  width: 328px;
+  border: solid #08a6e4;
+  margin-top: 50px;
+}
+
+.benefits-paragraf3::after {
+  display: flex;
+  flex-direction: column;
+  content: "";
+  width: 328px;
+  border: solid #55dfb4;
+  margin-top: 44px;
+}
+
+.price-ofers{
+  margin-top: 20px;
+  display: flex;
+}
+.price-heading {
+margin-top: 100px;
+margin-bottom: 50px;
+font-size: 36px;
+}
+.price1 {
+  font-size: 46px;
+  font-family:'Open Sans', sans-serif; 
+  font-weight: 300;
+  
+}
+
+.price1-red {
+color:#FB3B64;
+}
+.price1-blue {
+color:#07ACE6;
+}
+.price1-green {
+color:#55DFB4;
+}
+.price2 {
+  
 }
