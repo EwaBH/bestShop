@@ -1,12 +1,15 @@
+* {
+    box-sizing: border-box;
+}
 .container {
   margin: 0 auto;
   width: 1352px;
-  box-sizing: border-box;
+  
 }
 /*font-family: 'Open Sans', sans-serif;*/
 body {
   font-family: "Raleway", sans-serif;
-  box-sizing: border-box;
+ 
 }
 .header .container {
   display: flex;
@@ -61,9 +64,9 @@ body {
 .heading {
   color: #000000;
   font-size: 49px;
-  width: 226px;
+  width: 344px;
   height: 57px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 .section-main-text {
   font-family: "Open Sans", sans-serif;
@@ -265,6 +268,46 @@ color:#07ACE6;
 .price1-green {
 color:#55DFB4;
 }
-.price2 {
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  align-items: flex-start;
   
+   
+}
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  align-items: flex-end;
+   
+   
+}
+
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkbox {
+  cursor: pointer;
+  display: flex;
+}
+ 
+.checkbox span {
+  height: 11px;
+  width: 12px;
+  flex-shrink: 0;
+  flex-basis: 60px;
+  border: 10px solid #95989A;
+  cursor: pointer;
+  margin-right: 200px;
+}
+.checkbox input:checked + span {
+  background-color: red;
 }
