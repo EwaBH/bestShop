@@ -1,25 +1,32 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 .container {
   margin: 0 auto;
   width: 1352px;
-  
 }
+
+a {
+  text-decoration: none;
+}
+
 /*font-family: 'Open Sans', sans-serif;*/
 body {
   font-family: "Raleway", sans-serif;
- 
 }
-.header .container {
+.header-container {
   display: flex;
   justify-content: space-between;
+    align-items: center;
+  height: 100%;
 }
+
 .header {
   height: 70px;
   width: 100%;
   box-shadow: 0px 3px 6px #00000029;
   margin-bottom: 130px;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }
 .logo {
   color: #08a6e4;
@@ -41,7 +48,7 @@ body {
 }
 .page-nav-list {
   margin-right: 94px;
-  text-decoration: none;
+  
   color: #a5a5a5;
   text-transform: uppercase;
 }
@@ -243,71 +250,156 @@ czy można to zrobić before*/
   margin-top: 44px;
 }
 
-.price-ofers{
-  margin-top: 20px;
+.pricing-container {
+  margin:100px auto;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.price-ofers {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .price-heading {
-margin-top: 100px;
-margin-bottom: 50px;
-font-size: 36px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  font-size: 36px;
 }
-.price1 {
+.price-ofers {
   font-size: 46px;
-  font-family:'Open Sans', sans-serif; 
+  font-family: "Open Sans", sans-serif;
   font-weight: 300;
-  
+  width: 370px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid blue;
 }
 
 .price1-red {
-color:#FB3B64;
+  color: #fb3b64;
 }
 .price1-blue {
-color:#07ACE6;
+  color: #07ace6;
 }
 .price1-green {
-color:#55DFB4;
+  color: #55dfb4;
+}
+.price {
+
 }
 
-.contact-left {
+.contact {
+  padding: 80px 100px 100px ;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+}
+.contact-column {
   width:50%;
-  align-items: flex-start;
+  }
+
+.contact-title {
+  font-size: 49px;
+  padding: 22px;
   
-   
 }
-.contact-right {
+.contact-instruction {
+  font-size: 16px;
+  padding: 40px;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: flex-start;
+  color: #A5A5A5;
+  font-size: 16px;
+  padding-right: 10px;
+  align-items: center;
+}
+.details__item {
+  margin-right: 10px;
+  color: #A5A5A5;
+}
+
+.form {
   display: flex;
   flex-direction: column;
-  width:50%;
-  align-items: flex-end;
-   
-   
 }
+.form__field {
+  display: flex;
+  flex-direction: column;
 
+}
+.form__label {
+  text-transform: uppercase;
+  color: #08A6E4;
+  font-size: 11px;
+  font-weight: 700;
+  font-weight: bold;
+ }
+.form__input {
+  border:none;
+  border-bottom: 1px solid #707070;
+  margin-bottom: 15px;
+  line-height: 30px;
+}
+.checkbox-text {
+  color:#707070;
+  font-size: 12px;
+  font-family:"Open Sans", sans-serif ;
+  line-height: 1.5;
 
-.checkbox input {
+}
+.form__consent {
+  margin-top: 30px;
+
+}
+.form__checkbox {
+    display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1.375rem;
+}
+.form__checkbox input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
 }
-.checkbox {
-  cursor: pointer;
-  display: flex;
+
+.form__checkbox .checkbox {
+  position: absolute;
+  top:0;
+  left:0;
+  border: 1px solid #707070;
+  border-radius: 4px;
+  height: 25px;
+  width: 25px;
+  
+
 }
- 
-.checkbox span {
-  height: 11px;
-  width: 12px;
-  flex-shrink: 0;
-  flex-basis: 60px;
-  border: 10px solid #95989A;
-  cursor: pointer;
-  margin-right: 200px;
+.form__checkbox input:checked ~ .checkbox {
+  background-image: url(../assets/Checkmark.svg);
+  background-position: center;
+  background-size:50%;
+  background-repeat: no-repeat;
 }
-.checkbox input:checked + span {
-  background-color: red;
+
+.btn--primary{
+  width: 226px;
+  height: 57px;
+  border-radius: 35px;
+  background-color: #08A6E4;
+  color: #fff;
+  
+  border-color: transparent;
+  align-self: flex-end;
+
 }
