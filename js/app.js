@@ -47,12 +47,13 @@ class Calculator {
     this.summary.totalPrice.children[1].innerText = `$${this.calculateTotal()}`;
   }
 
-  setState() {
+  initialise() {
     const summaryList = document.querySelector(".calc__summary").children[0];
     [...summaryList.children].forEach((item) => {
       item.style.display = "none";
     });
     this.summary.totalPrice.children[1].innerText = "$0";
+
     this.form.products.addEventListener("keyup", () => {
       if (this.form.products.value == 0) {
         this.summary.products.style.display = "none";
@@ -65,10 +66,23 @@ class Calculator {
         this.summary.products.children[2].innerText = `$${this.summary.values.products}`;
       }
       this.setTotal();
+      this.form.orders.addEventListener("keyup", () => {
+        if (this.form.orders.value == 0) {
+          this.summary.orders.style.display = "none";
+          this.summary.values.orders = 0;
+        } else {
+          this.summary.orders.style.display = "block";
+          this.summary.orders.children[1].innerText = `${this.form.orders.value} * $${this.prices.orders}`;
+          this.summary.values.orders =
+            this.form.orders.value * this.prices.orders;
+          this.summary.orders.children[2].innerText = `$${this.summary.values.orders}`;
+        }
+        this.setTotal();
+      });
     });
   }
 }
 
 const calc = new Calculator();
-calc.setState();
+calc.initialise();
 //console.log(calc.summary.totalPrice.children[1]);
