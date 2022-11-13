@@ -44,7 +44,40 @@ class Calculator {
   }
 
   setTotal() {
-    this.summary.totalPrice.children[1].innerText = `$${this.calculateTotal()}`;
+    const totalPrice = this.calculateTotal();
+    if (totalPrice > 0 || this.form.package.children[0].innerText === "Basic") {
+      this.summary.totalPrice.style.display = "block";
+      this.summary.totalPrice.children[1].innerText = `$${totalPrice}`;
+    } else {
+      this.summary.totalPrice.style.display = "none";
+    }
+  }
+
+  productsValueChange() {
+    if (this.form.products.value == 0) {
+      this.summary.products.style.display = "none";
+      this.summary.values.products = 0;
+    } else {
+      this.summary.products.style.display = "block";
+      this.summary.products.children[1].innerText = `${this.form.products.value} * $${this.prices.products}`;
+      this.summary.values.products =
+        this.form.products.value * this.prices.products;
+      this.summary.products.children[2].innerText = `$${this.summary.values.products}`;
+    }
+    this.setTotal();
+  }
+
+  ordersValueChange() {
+    if (this.form.orders.value == 0) {
+      this.summary.orders.style.display = "none";
+      this.summary.values.orders = 0;
+    } else {
+      this.summary.orders.style.display = "block";
+      this.summary.orders.children[1].innerText = `${this.form.orders.value} * $${this.prices.orders}`;
+      this.summary.values.orders = this.form.orders.value * this.prices.orders;
+      this.summary.orders.children[2].innerText = `$${this.summary.values.orders}`;
+    }
+    this.setTotal();
   }
 
   initialise() {
@@ -54,34 +87,22 @@ class Calculator {
     });
 
     this.form.package.children[1].style.display = "none";
-    this.summary.totalPrice.children[1].innerText = "$0";
+    this.summary.totalPrice.style.display = "none";
 
     this.form.products.addEventListener("keyup", () => {
-      if (this.form.products.value == 0) {
-        this.summary.products.style.display = "none";
-        this.summary.values.products = 0;
-      } else {
-        this.summary.products.style.display = "block";
-        this.summary.products.children[1].innerText = `${this.form.products.value} * $${this.prices.products}`;
-        this.summary.values.products =
-          this.form.products.value * this.prices.products;
-        this.summary.products.children[2].innerText = `$${this.summary.values.products}`;
-      }
-      this.setTotal();
+      this.productsValueChange();
+    });
+
+    this.form.products.addEventListener("change", () => {
+      this.productsValueChange();
     });
 
     this.form.orders.addEventListener("keyup", () => {
-      if (this.form.orders.value == 0) {
-        this.summary.orders.style.display = "none";
-        this.summary.values.orders = 0;
-      } else {
-        this.summary.orders.style.display = "block";
-        this.summary.orders.children[1].innerText = `${this.form.orders.value} * $${this.prices.orders}`;
-        this.summary.values.orders =
-          this.form.orders.value * this.prices.orders;
-        this.summary.orders.children[2].innerText = `$${this.summary.values.orders}`;
-      }
-      this.setTotal();
+      this.ordersValueChange();
+    });
+
+    this.form.orders.addEventListener("change", () => {
+      this.ordersValueChange();
     });
 
     this.form.accounting.addEventListener("click", () => {
@@ -126,7 +147,7 @@ class Calculator {
       item.addEventListener("click", (e) => {
         e.stopPropagation();
         this.form.package.children[0].innerText = item.innerText;
-         this.summary.package.children[1].innerText = item.innerText;
+        this.summary.package.children[1].innerText = item.innerText;
         this.form.package.children[1].style.display = "none";
         this.summary.values.package = Object.values(this.prices.package)[index];
         this.summary.package.style.display = "block";
@@ -139,4 +160,3 @@ class Calculator {
 
 const calc = new Calculator();
 calc.initialise();
-
