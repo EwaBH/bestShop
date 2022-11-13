@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "source": "index.html",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel --no-cache",
     "build": "parcel build"
   },
   "devDependencies": {
