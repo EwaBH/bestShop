@@ -46,7 +46,7 @@ class Calculator {
   setTotal() {
     const totalPrice = this.calculateTotal();
     if (totalPrice > 0 || this.form.package.children[0].innerText === "Basic") {
-      this.summary.totalPrice.style.display = "block";
+      this.summary.totalPrice.style.display = "flex";
       this.summary.totalPrice.children[1].innerText = `$${totalPrice}`;
     } else {
       this.summary.totalPrice.style.display = "none";
@@ -58,7 +58,7 @@ class Calculator {
       this.summary.products.style.display = "none";
       this.summary.values.products = 0;
     } else {
-      this.summary.products.style.display = "block";
+      this.summary.products.style.display = "flex";
       this.summary.products.children[1].innerText = `${this.form.products.value} * $${this.prices.products}`;
       this.summary.values.products =
         this.form.products.value * this.prices.products;
@@ -72,7 +72,7 @@ class Calculator {
       this.summary.orders.style.display = "none";
       this.summary.values.orders = 0;
     } else {
-      this.summary.orders.style.display = "block";
+      this.summary.orders.style.display = "flex";
       this.summary.orders.children[1].innerText = `${this.form.orders.value} * $${this.prices.orders}`;
       this.summary.values.orders = this.form.orders.value * this.prices.orders;
       this.summary.orders.children[2].innerText = `$${this.summary.values.orders}`;
@@ -107,7 +107,7 @@ class Calculator {
 
     this.form.accounting.addEventListener("click", () => {
       if (this.form.accounting.checked) {
-        this.summary.accounting.style.display = "block";
+        this.summary.accounting.style.display = "flex";
         this.summary.values.accounting = this.prices.accounting;
         this.summary.accounting.children[1].innerText = `$${this.summary.values.accounting}`;
       } else {
@@ -120,7 +120,7 @@ class Calculator {
 
     this.form.terminal.addEventListener("click", () => {
       if (this.form.terminal.checked) {
-        this.summary.terminal.style.display = "block";
+        this.summary.terminal.style.display = "flex";
         this.summary.values.terminal = this.prices.terminal;
         this.summary.terminal.children[1].innerText = `$${this.summary.values.terminal}`;
       } else {
@@ -150,7 +150,7 @@ class Calculator {
         this.summary.package.children[1].innerText = item.innerText;
         this.form.package.children[1].style.display = "none";
         this.summary.values.package = Object.values(this.prices.package)[index];
-        this.summary.package.style.display = "block";
+        this.summary.package.style.display = "flex";
         this.summary.package.children[2].innerText = `$${this.summary.values.package}`;
         this.setTotal();
       });
